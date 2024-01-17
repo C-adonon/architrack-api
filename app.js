@@ -1,6 +1,6 @@
-// import express
+// import dependencies
 import express from "express";
-
+import "dotenv/config";
 
 // initialize app
 export const app = express();
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-
+// TODO: Add routes here
 
 // Error middleware
 app.use((err, req, res, next) => {
