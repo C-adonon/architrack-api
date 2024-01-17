@@ -1,6 +1,8 @@
 // import dependencies
 import express from "express";
 import "dotenv/config";
+// connect to the database
+import connection from "./db/dbConnect.js";
 
 // initialize app
 export const app = express();
@@ -24,3 +26,5 @@ app.use((err, req, res, next) => {
   // other errors to handle
   return res.status(err.status).json({ error: err.message });
 });
+
+connection.end();
