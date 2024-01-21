@@ -1,11 +1,20 @@
 // import dependencies
 import express from "express";
+import cors from "cors";
 import "dotenv/config";
 // connect to the database
-import connection from "./db/dbConnect.js";
+// import connection from "./db/dbConnect.js";
 
 // initialize app
 export const app = express();
+
+// CORS
+app.use(
+  cors({
+    origin: ["*"],
+    credentials: true,
+  })
+);
 
 // for parsing application/json
 app.use(express.json());
@@ -27,4 +36,4 @@ app.use((err, req, res, next) => {
   return res.status(err.status).json({ error: err.message });
 });
 
-connection.end();
+// connection.end();
